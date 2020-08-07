@@ -27,18 +27,20 @@ echo "with.ulaw"
 echo "call-forwarding.ulaw"  
 echo ""
 sleep 10
-clear
+#clear
 
 echo "--------------------------------------------------------"
 echo "     Carregando variaveis de apoio                      "
 echo "--------------------------------------------------------"
 DIR="/var/lib/asterisk/sounds/pt_BR"
-SORRY=$(ls -la $DIR/[i]m-sorry* |wc -l)
-OCCURRED=$(ls -la $DIR/[a]n-error-has-occurred* |wc -l)
-OCCURED=$(ls -la $DIR/[a]n-error-has-occured* |wc -l)
+SORRY=$(ls -la $DIR/ | grep -c [i]m-sorry*)
+OCCURRED=$(ls -la $DIR/ | grep -c [a]n-error-has-occurred)
+OCCURED=$(ls -la $DIR/ | grep -c [a]n-error-has-occured)
 WITCH=$(ls -la $DIR/[w]ith* |wc -l)
 CALLFORWARDING=$(ls -la $DIR/[c]all-forwarding* |wc -l)
 
+mkdir /var/log/voipeasy/
+>/var/log/voipeasy/audio.log 
 LOG="/var/log/voipeasy/audio.log"
 
 #Funcao responsavel por gerar os logs
@@ -55,7 +57,7 @@ function log_erro(){
         fi
 }
 sleep 2
-clear
+#clear
 
 echo "--------------------------------------------------------"
 echo "   Verificando e Alterando arquivos im-sorry            "
@@ -79,7 +81,7 @@ else
 log "Não existe arquivos im-sorry em pt_BR"
 fi 
 sleep 2
-clear
+#clear
 
 echo "--------------------------------------------------------"
 echo " Verificando e Alterando arquivos an-error-has-occurred "
@@ -103,7 +105,7 @@ else
 log "Não existe arquivos an-error-has-occurred em pt_BR"
 fi
 sleep 2
-clear
+#clear
 
 echo "--------------------------------------------------------"
 echo " Verificando e Alterando arquivos an-error-has-occured "
@@ -127,7 +129,7 @@ else
 log "Não existe arquivos an-error-has-occured em pt_BR"
 fi
 sleep 2
-clear
+#clear
 
 echo "--------------------------------------------------------"
 echo "   Verificando e Alterando arquivos with            "
@@ -151,7 +153,7 @@ else
 log "Não existe arquivos with em pt_BR"
 fi
 sleep 2
-clear
+#clear
 
 echo "--------------------------------------------------------"
 echo "   Verificando e Alterando arquivos call-forwarding     "
@@ -175,7 +177,7 @@ else
 log "Não existe arquivos call-forwarding em pt_BR"
 fi
 sleep 2
-clear
+#clear
 
 echo "--------------------------------------------------------"
 echo "   Baixando novos audios e colocando em pt_BR           "
@@ -195,7 +197,7 @@ echo ""
 amportal restart 
 log "Serviço concluido"
 sleep 2
-clear
+#clear
 echo "--------------------------------------------------------"
 echo "   Serviço concluido           "
 echo "--------------------------------------------------------"
