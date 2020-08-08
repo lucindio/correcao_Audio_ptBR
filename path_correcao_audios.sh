@@ -28,17 +28,24 @@ echo "call-forwarding.ulaw"
 echo ""
 sleep 10
 #clear
-
+echo ""
 echo "--------------------------------------------------------"
 echo "     Carregando variaveis de apoio                      "
 echo "--------------------------------------------------------"
 DIR="/var/lib/asterisk/sounds/pt_BR"
-
-
+echo "--------------------------------------------------------"
+echo "     Atualizado dependencias                            "
+echo "--------------------------------------------------------"
+yum -y install wget mtr vim mlocate nmap tcpdump mc nano lynx rsync minicom screen htop subversion deltarpm
+updatedb
+echo "--------------------------------------------------------"
+echo "     Atualizado Repositorios                            "
+echo "--------------------------------------------------------"
+yum -y update
 echo "--------------------------------------------------------"
 echo "   Baixando novos audios e colocando em pt_BR           "
 echo "--------------------------------------------------------"
-
+echo ""
 svn co https://github.com/lucindio/AudiosPtBr/trunk/ /usr/src/Audio_ptBR
 echo ""
 cd /usr/src/Audio_ptBR
