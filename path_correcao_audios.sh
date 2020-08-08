@@ -54,7 +54,6 @@ echo ""
 echo ""
 rsync -avzhe * $DIR
 echo ""
-amportal restart 
 sleep 2
 #clear
 echo "--------------------------------------------------------"
