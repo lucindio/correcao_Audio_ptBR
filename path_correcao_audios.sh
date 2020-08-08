@@ -40,7 +40,6 @@ echo ""
 svn co https://github.com/lucindio/AudiosPtBr/trunk/ /usr/src/Audio_ptBR
 echo ""
 cd /usr/src/Audio_ptBR
-rm -rf desktop.ini
 echo ""
 echo ""
 rsync -avzhe * $DIR
